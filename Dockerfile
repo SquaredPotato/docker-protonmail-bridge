@@ -18,6 +18,7 @@ RUN apt-get update -q && \
 	ca-certificates \
  	pass \
  	socat \
+        nano \
  	libcap2-bin && \
     apt-get clean && \
     rm ${PROTONMAIL_BRIDGE_FILE}
@@ -28,6 +29,7 @@ RUN setcap 'cap_net_bind_service=+ep' /usr/bin/socat
 RUN useradd -m -s /bin/bash ${USER}
 COPY entrypoint.sh gpg-key-parameters.txt /home/${USER}/
 RUN chown -R ${USER}: /home/${USER}
+RUN chmod -R o+w /home/${USER}
 
 # document which ports are exposed
 EXPOSE ${SMTP_PORT}
