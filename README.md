@@ -1,4 +1,4 @@
-Run ProtonMail Bridge in a docker container
+Run ProtonMail Bridge in a docker container without the container resetting it's passwords every time you start the container....
 
 Usage
 =====
